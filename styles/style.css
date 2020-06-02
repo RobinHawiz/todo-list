@@ -11,5 +11,55 @@ html {
 
 body {
   font-family: "Poppins", sans-serif;
+  background: linear-gradient(120deg, #a3ff66, #4cbd01);
+  color: white;
+  min-height: 100vh;
+}
+
+header,
+form {
+  min-height: 20vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+header h1 {
+  font-size: 5.5rem;
+}
+
+form input,
+form button {
+  padding: 1.5rem;
+  font-size: 2rem;
+  border: none;
+  background: white;
+}
+
+form input {
+  width: calc(25rem + 5vmin);
+}
+
+form button {
+  color: #4cbd01;
+  background: white;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  cursor: pointer;
+}
+
+form button:hover {
+  color: white;
+  background: transparent;
 }
 /*# sourceMappingURL=style.css.map */
