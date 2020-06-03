@@ -11,10 +11,13 @@ header {
 }
 
 form {
+  flex-wrap: wrap;
   input,
-  button {
+  button,
+  select {
     padding: 1.5rem;
     font-size: 2rem;
+    min-height: 5.5rem;
     border: none;
     background: white;
   }
@@ -33,5 +36,95 @@ form {
       color: white;
       background: transparent;
     }
+  }
+
+  .select {
+    position: relative;
+    select {
+      appearance: none;
+      outline: none;
+      color: #4cbd01;
+      width: 20rem;
+      transition: all 0.5s ease;
+      cursor: pointer;
+      &:hover {
+        background: transparent;
+        color: white;
+      }
+
+      option {
+        color: #4cbd01;
+      }
+    }
+
+    &::after {
+      content: url("../down-arrow.svg");
+      width: 2rem;
+      height: auto;
+      position: absolute;
+      pointer-events: none;
+      top: 50%;
+      transform: translate(-150%, -40%);
+    }
+  }
+}
+
+.todo-container {
+  @include flex(row, center, center);
+
+  .todo-list {
+    width: calc(30rem + 15vmin);
+
+    .todo {
+      @include flex(row, center, none);
+      margin: 0.5rem;
+      transition: all 0.5s ease;
+      color: black;
+
+      .todo-item {
+        min-height: 5.5rem;
+        flex: 1;
+        font-size: 2rem;
+        padding-left: 1rem;
+        background: white;
+        display: flex;
+        align-items: center;
+      }
+      button {
+        min-height: 5.5rem;
+        padding: 0rem 1.5rem;
+        font-size: 2rem;
+        border: none;
+        background: white;
+        color: #4cbd01;
+        transition: all 0.5s ease;
+        cursor: pointer;
+
+        i {
+          pointer-events: none;
+        }
+
+        &:hover {
+          color: white;
+          background: transparent;
+        }
+      }
+    }
+    .complete-btn-style {
+      text-decoration: line-through;
+      opacity: 0.3;
+    }
+    .delete-btn-style {
+      animation: delete 1s ease forwards;
+    }
+  }
+}
+
+@keyframes delete {
+  from {
+  }
+  to {
+    transform: translateY(30rem) rotate(-25deg);
+    opacity: 0;
   }
 }

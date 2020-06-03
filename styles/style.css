@@ -16,6 +16,10 @@ body {
   min-height: 100vh;
 }
 
+li {
+  list-style: none;
+}
+
 header,
 form {
   min-height: 20vh;
@@ -38,10 +42,17 @@ header h1 {
   font-size: 5.5rem;
 }
 
+form {
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
 form input,
-form button {
+form button,
+form select {
   padding: 1.5rem;
   font-size: 2rem;
+  min-height: 5.5rem;
   border: none;
   background: white;
 }
@@ -61,5 +72,148 @@ form button {
 form button:hover {
   color: white;
   background: transparent;
+}
+
+form .select {
+  position: relative;
+}
+
+form .select select {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  outline: none;
+  color: #4cbd01;
+  width: 20rem;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  cursor: pointer;
+}
+
+form .select select:hover {
+  background: transparent;
+  color: white;
+}
+
+form .select select option {
+  color: #4cbd01;
+}
+
+form .select::after {
+  content: url("../down-arrow.svg");
+  width: 2rem;
+  height: auto;
+  position: absolute;
+  pointer-events: none;
+  top: 50%;
+  -webkit-transform: translate(-150%, -40%);
+          transform: translate(-150%, -40%);
+}
+
+.todo-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.todo-container .todo-list {
+  width: calc(30rem + 15vmin);
+}
+
+.todo-container .todo-list .todo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: none;
+      -ms-flex-pack: none;
+          justify-content: none;
+  margin: 0.5rem;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  color: black;
+}
+
+.todo-container .todo-list .todo .todo-item {
+  min-height: 5.5rem;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  font-size: 2rem;
+  padding-left: 1rem;
+  background: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.todo-container .todo-list .todo button {
+  min-height: 5.5rem;
+  padding: 0rem 1.5rem;
+  font-size: 2rem;
+  border: none;
+  background: white;
+  color: #4cbd01;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  cursor: pointer;
+}
+
+.todo-container .todo-list .todo button i {
+  pointer-events: none;
+}
+
+.todo-container .todo-list .todo button:hover {
+  color: white;
+  background: transparent;
+}
+
+.todo-container .todo-list .complete-btn-style {
+  text-decoration: line-through;
+  opacity: 0.3;
+}
+
+.todo-container .todo-list .delete-btn-style {
+  -webkit-animation: delete 1s ease forwards;
+          animation: delete 1s ease forwards;
+}
+
+@-webkit-keyframes delete {
+  from {
+  }
+  to {
+    -webkit-transform: translateY(30rem) rotate(-25deg);
+            transform: translateY(30rem) rotate(-25deg);
+    opacity: 0;
+  }
+}
+
+@keyframes delete {
+  from {
+  }
+  to {
+    -webkit-transform: translateY(30rem) rotate(-25deg);
+            transform: translateY(30rem) rotate(-25deg);
+    opacity: 0;
+  }
 }
 /*# sourceMappingURL=style.css.map */
